@@ -27,6 +27,7 @@ const Dashboard = ({ getEvents, deleteEvent, events: { events, loading } }) => {
 
   const DeleteEvent = (eventId) => {
     fetchRequest();
+    fetchRequest();
     deleteEvent(eventId);
     fetchRequest();
   };
