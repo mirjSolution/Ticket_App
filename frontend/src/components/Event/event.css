@@ -9,3 +9,21 @@
   display: flex;
   justify-content: center;
 }
+
+@media only screen and (max-width: 1300px) {
+  .event-image {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* @media only screen and (max-width: 800px) {
+
+} */
+
+@media only screen and (max-width: 600px) {
+  .event-image {
+    width: 300px;
+    height: 300px;
+  }
+}
