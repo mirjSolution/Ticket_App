@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getEvents } from '../../actions/events';
 
-import './event.css';
+import './Event.css';
 import SearchBox from '../../components/utils/search-box/search-box.component';
 const Event = ({ getEvents, events: { events, loading } }) => {
   const [formSearch, setFormSearch] = useState({
@@ -45,11 +45,13 @@ const Event = ({ getEvents, events: { events, loading } }) => {
             )
             .map((event) => (
               <Fragment key={event._id}>
-                <div className='center bg-white dib br3 pa1 ma1 grow bw2 shadow-5'>
-                  <h2>{event.name}</h2>
-                  <img className='event-image' src={event.urlPic} alt='' />
-                  <h3>{event.eventDate}</h3>
-                </div>
+                <Link to={`/eventdetails/${event._id}`}>
+                  <div className='center bg-white dib br3 pa1 ma1 grow bw2 shadow-5'>
+                    <h2>{event.name}</h2>
+                    <img className='event-image' src={event.urlPic} alt='' />
+                    <h3>{event.eventDate}</h3>
+                  </div>
+                </Link>
               </Fragment>
             ))
         : null}

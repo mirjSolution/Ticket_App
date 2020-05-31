@@ -7,6 +7,7 @@ import Register from './components/auth/Register';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import Events from './components/Event/Event';
+import EventDetails from './components/Event/EventDetail';
 
 import AddEvent from './components/dashboard/add-event.component';
 import EditEvent from './components/dashboard/edit-event.component';
@@ -43,6 +44,7 @@ const App = () => {
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
               <PrivateRoute exact path='/addevent' component={AddEvent} />
               <PrivateRoute exact path='/editevent/:id' component={EditEvent} />
+              <Route exact path='/eventdetails/:id' component={EventDetails} />
             </Switch>
           </section>
         </Fragment>
