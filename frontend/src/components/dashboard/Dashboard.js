@@ -53,9 +53,13 @@ const Dashboard = ({ getEvents, deleteEvent, events: { events, loading } }) => {
               <th>Name</th>
               <th>Description</th>
               <th>G.A. Price</th>
+              <th>G.A. Qty</th>
               <th>VIP Price</th>
+              <th>VIP Qty</th>
               <th>Res Price</th>
+              <th>Res Qty</th>
               <th>E.B Price</th>
+              <th>E.B Qty</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -91,14 +95,26 @@ const Dashboard = ({ getEvents, deleteEvent, events: { events, loading } }) => {
                       <td className={event.general ? '' : 's-padding'}>
                         {event.general}
                       </td>
+                      <td className={event.genQty ? '' : 's-padding'}>
+                        {event.genQty}
+                      </td>
                       <td className={event.vip ? '' : 's-padding'}>
                         {event.vip}
+                      </td>
+                      <td className={event.vipQty ? '' : 's-padding'}>
+                        {event.vipQty}
                       </td>
                       <td className={event.reserved ? '' : 's-padding'}>
                         {event.reserved}
                       </td>
+                      <td className={event.resQty ? '' : 's-padding'}>
+                        {event.resQty}
+                      </td>
                       <td className={event.earlybird ? '' : 's-padding'}>
                         {event.earlybird}
+                      </td>
+                      <td className={event.earlyQty ? '' : 's-padding'}>
+                        {event.earlyQty}
                       </td>
                       <td>
                         <div className='actions'>

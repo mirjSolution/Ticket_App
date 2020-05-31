@@ -11,9 +11,13 @@ const AddEvent = ({ createEvent, history }) => {
     name: '',
     description: '',
     general: '',
+    genQty: '',
     vip: '',
+    vipQty: '',
     reserved: '',
+    resQty: '',
     earlybird: '',
+    earlyQty: '',
     urlPic: '',
   });
 
@@ -23,9 +27,13 @@ const AddEvent = ({ createEvent, history }) => {
     name,
     description,
     general,
+    genQty,
     vip,
+    vipQty,
     reserved,
+    resQty,
     earlybird,
+    earlyQty,
     urlPic,
   } = formData;
 
@@ -106,6 +114,16 @@ const AddEvent = ({ createEvent, history }) => {
           />
         </div>
         <div className='form-group'>
+          <h4>General Quantity</h4>
+          <input
+            type='number'
+            placeholder='Ticket Quantity'
+            name='genQty'
+            value={genQty}
+            onChange={(e) => onChange(e)}
+          />
+        </div>
+        <div className='form-group'>
           <h4>VIP</h4>
           <input
             type='number'
@@ -116,12 +134,32 @@ const AddEvent = ({ createEvent, history }) => {
           />
         </div>
         <div className='form-group'>
-          <h4>Reserved</h4>
+          <h4>VIP Quantity</h4>
+          <input
+            type='number'
+            placeholder='Ticket Quantity'
+            name='vipQty'
+            value={vipQty}
+            onChange={(e) => onChange(e)}
+          />
+        </div>
+        <div className='form-group'>
+          <h4>Reserved Quantity</h4>
           <input
             type='number'
             placeholder='Price'
             name='reserved'
             value={reserved}
+            onChange={(e) => onChange(e)}
+          />
+        </div>
+        <div className='form-group'>
+          <h4>Reserved Quantity</h4>
+          <input
+            type='number'
+            placeholder='Ticket Quantity'
+            name='resQty'
+            value={resQty}
             onChange={(e) => onChange(e)}
           />
         </div>
@@ -132,6 +170,16 @@ const AddEvent = ({ createEvent, history }) => {
             placeholder='Price'
             name='earlybird'
             value={earlybird}
+            onChange={(e) => onChange(e)}
+          />
+        </div>
+        <div className='form-group'>
+          <h4>Early Bird Quantity</h4>
+          <input
+            type='number'
+            placeholder='Ticket Quantity'
+            name='earlyQty'
+            value={earlyQty}
             onChange={(e) => onChange(e)}
           />
         </div>

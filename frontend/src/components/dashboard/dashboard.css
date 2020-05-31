@@ -132,13 +132,25 @@ Generic Styling, for Desktops/Laptops
     content: 'G.A. Price';
   }
   .items td:nth-of-type(6):before {
-    content: 'VIP Price';
+    content: 'G.A. Qty';
   }
   .items td:nth-of-type(7):before {
-    content: 'Res. Price';
+    content: 'VIP Price';
   }
   .items td:nth-of-type(8):before {
+    content: 'VIP Qty';
+  }
+  .items td:nth-of-type(9):before {
+    content: 'Res. Price';
+  }
+  .items td:nth-of-type(10):before {
+    content: 'Res. Qty';
+  }
+  .items td:nth-of-type(11):before {
     content: 'E.B. Price';
+  }
+  .items td:nth-of-type(12):before {
+    content: 'E.B. Qty';
   }
   .items td:nth-of-type(10):before {
     content: 'Actions';

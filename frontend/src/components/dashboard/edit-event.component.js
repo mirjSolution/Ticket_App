@@ -19,9 +19,13 @@ const EditEvent = ({
     name: '',
     description: '',
     general: '',
+    genQty: '',
     vip: '',
+    vipQty: '',
     reserved: '',
+    resQty: '',
     earlybird: '',
+    earlyQty: '',
     urlPic: '',
   });
 
@@ -34,9 +38,13 @@ const EditEvent = ({
       name: loading || !events.name ? '' : events.name,
       description: loading || !events.description ? '' : events.description,
       general: loading || !events.general ? '' : events.general,
+      genQty: loading || !events.genQty ? '' : events.genQty,
       vip: loading || !events.vip ? '' : events.vip,
+      vipQty: loading || !events.vipQty ? '' : events.vipQty,
       reserved: loading || !events.reserved ? '' : events.reserved,
+      resQty: loading || !events.resQty ? '' : events.resQty,
       earlybird: loading || !events.earlybird ? '' : events.earlybird,
+      earlyQty: loading || !events.earlyQty ? '' : events.earlyQty,
       urlPic: loading || !events.urlPic ? '' : events.urlPic,
     });
   }, [
@@ -48,9 +56,13 @@ const EditEvent = ({
     events.name,
     events.description,
     events.general,
+    events.genQty,
     events.vip,
+    events.vipQty,
     events.reserved,
+    events.resQty,
     events.earlybird,
+    events.earlyQty,
     events.urlPic,
   ]);
 
@@ -60,9 +72,13 @@ const EditEvent = ({
     name,
     description,
     general,
+    genQty,
     vip,
+    vipQty,
     reserved,
+    resQty,
     earlybird,
+    earlyQty,
     urlPic,
   } = formData;
 
@@ -92,6 +108,7 @@ const EditEvent = ({
               <h4>Date</h4>
               <input
                 type='date'
+                placeholder='Date'
                 name='eventDate'
                 value={eventDate}
                 onChange={(e) => onChange(e)}
@@ -148,6 +165,16 @@ const EditEvent = ({
               />
             </div>
             <div className='form-group'>
+              <h4>General Quantity</h4>
+              <input
+                type='number'
+                placeholder='Ticket Quantity'
+                name='genQty'
+                value={genQty}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
+            <div className='form-group'>
               <h4>VIP</h4>
               <input
                 type='number'
@@ -158,12 +185,32 @@ const EditEvent = ({
               />
             </div>
             <div className='form-group'>
-              <h4>Reserved</h4>
+              <h4>VIP Quantity</h4>
+              <input
+                type='number'
+                placeholder='Ticket Quantity'
+                name='vipQty'
+                value={vipQty}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
+            <div className='form-group'>
+              <h4>Reserved Quantity</h4>
               <input
                 type='number'
                 placeholder='Price'
                 name='reserved'
                 value={reserved}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
+            <div className='form-group'>
+              <h4>Reserved Quantity</h4>
+              <input
+                type='number'
+                placeholder='Ticket Quantity'
+                name='resQty'
+                value={resQty}
                 onChange={(e) => onChange(e)}
               />
             </div>
@@ -174,6 +221,16 @@ const EditEvent = ({
                 placeholder='Price'
                 name='earlybird'
                 value={earlybird}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
+            <div className='form-group'>
+              <h4>Early Bird Quantity</h4>
+              <input
+                type='number'
+                placeholder='Ticket Quantity'
+                name='earlyQty'
+                value={earlyQty}
                 onChange={(e) => onChange(e)}
               />
             </div>
