@@ -48,9 +48,9 @@ const Dashboard = ({ getEvents, deleteEvent, events: { events, loading } }) => {
         <table className='items'>
           <thead>
             <tr>
+              <th>Name</th>
               <th>Date</th>
               <th>Area/Location</th>
-              <th>Name</th>
               <th>Description</th>
               <th>G.A. Price</th>
               <th>VIP Price</th>
@@ -74,17 +74,15 @@ const Dashboard = ({ getEvents, deleteEvent, events: { events, loading } }) => {
                   )
                   .map((event) => (
                     <tr key={event._id}>
-                      <td className={event.eventDate ? 'package' : 's-padding'}>
-                        {event.eventDate}
-                      </td>
-
-                      <td className={event.area ? '' : 's-padding'}>
-                        {event.area}
-                      </td>
                       <td className={event.name ? '' : 's-padding'}>
                         {event.name}
                       </td>
-
+                      <td className={event.eventDate ? 'package' : 's-padding'}>
+                        {event.eventDate}
+                      </td>
+                      <td className={event.area ? '' : 's-padding'}>
+                        {event.area}
+                      </td>
                       <td className={event.description ? '' : 's-padding'}>
                         {event.description}
                       </td>

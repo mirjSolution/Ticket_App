@@ -58,7 +58,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, role, name }, logout }) => {
               </i>
             </Fragment>
           ) : (
-            <span className='logo-img'>EclipticSolution</span>
+            <span className='logo-img'>Ticket-App</span>
           )}
         </Link>
       </h1>
