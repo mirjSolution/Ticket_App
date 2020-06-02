@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getEventById } from '../../actions/events';
 import { setAlert } from '../../actions/alert';
+import './EventDetail.css'
 
 const EventDetail = ({
   events: { events, loading },
@@ -87,20 +88,38 @@ const EventDetail = ({
         <Spinner />
       ) : (
         <Fragment>
-          <h1 className='large text-primary'>Concert Details</h1>
+          <h1 className ='pt4'>{name}</h1>
           <img className='event-image' src={urlPic} alt='' />
-          <p>{eventDate}</p>
-          <p>{area}</p>
-          <p>{name}</p>
-          <p>{description}</p>
-          <p>{general}</p>
-          <p>{genQty}</p>
-          <p>{vip}</p>
-          <p>{vipQty}</p>
-          <p>{reserved}</p>
-          <p>{resQty}</p>
-          <p>{earlybird}</p>
-          <p>{earlyQty}</p>
+          
+          <div className= 'event-details w-60 ' >
+          <h3>Location: {area} </h3>
+          <h3>Date: {eventDate}</h3>
+          <p className ='pt3'>{description}</p>
+
+          <div className ='pt3'>
+          
+          <div className ='control-button pr3'>
+          <button className= 'f6 link dim ba bw1 ph3 pv2 mb2 dib black br2'>General ${general}</button>
+          <p className ='pb3 red'>{genQty} tickets left</p>
+          </div>
+
+          <div className ='control-button pr3'>
+          <button className= 'f6 link dim ba bw1 ph3 pv2 mb2 dib black br2'>VIP ${vip}</button>
+          <p className ='pb3 red'>{vipQty} tickets left</p>
+          </div>
+
+          {/*
+          <button className= 'f6 link dim ba bw1 ph3 pv2 mb2 dib black br2'> Reserved ${reserved}</button>
+          <p className ='pb3 red'>{resQty} tickets left</p>
+
+          <button className= 'f6 link dim ba bw1 ph3 pv2 mb2 dib black br2'>EarlyBird ${earlybird}</button>
+          <p className ='pb3 red'>{earlyQty} tickets left</p>
+          */}
+
+          </div>
+
+          </div>
+
         </Fragment>
       )}
     </Fragment>

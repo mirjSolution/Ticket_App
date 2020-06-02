@@ -1,0 +1,22 @@
+.event-details {
+  float: right;
+}
+
+@media only screen and (max-width: 604px) {
+    .event-details {
+        float: left;
+        padding-top: 2rem;
+      }
+}
+
+.control-button{
+    display: inline-block; 
+    
+}
+
+/*
+p{
+    display: inline-block;
+
+}
+*/

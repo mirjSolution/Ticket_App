@@ -29,13 +29,3 @@
 }
 
 
-/* Push image to the front */
-
-#image-holder {
-  width: 500px;
-  height: auto;
-  position: absolute;
-  left: 300px;
-  top: 200px; 
-  display: none;
-}
