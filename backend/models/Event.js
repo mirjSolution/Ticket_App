@@ -25,15 +25,29 @@ const EventSchema = new mongoose.Schema({
   general: {
     type: Number,
   },
+  genQty: {
+    type: Number,
+  },
   vip: {
+    type: Number,
+    quantity: Number,
+  },
+  vipQty: {
     type: Number,
   },
   reserved: {
     type: Number,
   },
+  resQty: {
+    type: Number,
+  },
   earlybird: {
     type: Number,
   },
+  earlyQty: {
+    type: Number,
+  },
+
   urlPic: {
     type: String,
   },
