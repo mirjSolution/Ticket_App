@@ -50,6 +50,7 @@ const Dashboard = ({ getEvents, deleteEvent, events: { events, loading } }) => {
             <tr>
               <th>Name</th>
               <th>Date</th>
+              <th>Time</th>
               <th>Area/Location</th>
               <th>Description</th>
               <th>G.A. Price</th>
@@ -83,6 +84,9 @@ const Dashboard = ({ getEvents, deleteEvent, events: { events, loading } }) => {
                       </td>
                       <td className={event.eventDate ? 'package' : 's-padding'}>
                         {event.eventDate}
+                      </td>
+                      <td className={event.eventTime ? 'package' : 's-padding'}>
+                        {event.eventTime}
                       </td>
                       <td className={event.area ? '' : 's-padding'}>
                         {event.area}

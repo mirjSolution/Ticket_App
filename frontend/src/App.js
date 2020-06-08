@@ -8,6 +8,7 @@ import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import Events from './components/Event/Event';
 import EventDetails from './components/Event/EventDetail';
+import checkout from './components/checkout/checkout';
 
 import AddEvent from './components/dashboard/add-event.component';
 import EditEvent from './components/dashboard/edit-event.component';
@@ -41,6 +42,7 @@ const App = () => {
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
               <Route exact path='/events' component={Events} />
+              <PrivateRoute exact path='/checkout' component={checkout} />
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
               <PrivateRoute exact path='/addevent' component={AddEvent} />
               <PrivateRoute exact path='/editevent/:id' component={EditEvent} />

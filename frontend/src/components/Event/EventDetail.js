@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getEventById } from '../../actions/events';
 import { setAlert } from '../../actions/alert';
-import './EventDetail.css'
+import './EventDetail.css';
 
 const EventDetail = ({
   events: { events, loading },
@@ -15,6 +15,7 @@ const EventDetail = ({
 }) => {
   const [formData, setFormData] = useState({
     eventDate: '',
+    eventTime: '',
     area: '',
     name: '',
     description: '',
@@ -34,6 +35,7 @@ const EventDetail = ({
 
     setFormData({
       eventDate: loading || !events.eventDate ? '' : events.eventDate,
+      eventTime: loading || !events.eventTime ? '' : events.eventTime,
       area: loading || !events.area ? '' : events.area,
       name: loading || !events.name ? '' : events.name,
       description: loading || !events.description ? '' : events.description,
@@ -52,6 +54,7 @@ const EventDetail = ({
     getEventById,
     match.params.id,
     events.eventDate,
+    events.eventTime,
     events.area,
     events.name,
     events.description,
@@ -68,6 +71,7 @@ const EventDetail = ({
 
   const {
     eventDate,
+    eventTime,
     area,
     name,
     description,
@@ -88,38 +92,70 @@ const EventDetail = ({
         <Spinner />
       ) : (
         <Fragment>
-          <h1 className ='pt4'>{name}</h1>
-          <img className='event-image' src={urlPic} alt='' />
-          
-          <div className= 'event-details w-60 ' >
-          <h3>Location: {area} </h3>
-          <h3>Date: {eventDate}</h3>
-          <p className ='pt3'>{description}</p>
+          <div className='box'>
+            <div>
+              <img className='image' src={urlPic} alt='' />
+            </div>
+            <div className='inner'>
+              <h1 className='heading'>
+                <span>{name}</span>
+                <span>{eventDate}</span>
+                <span>{eventTime}</span>
+              </h1>
+              <h2 className='description'>{description}</h2>
+              <table className='tbl-event-details'>
+                <thead>
+                  <tr>
+                    <th>Ticket Left</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                    <th></th>
+                    <th>Quantity</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className='tbl-details'>
+                    <td>{genQty}</td>
+                    <td>G.A.</td>
+                    <td>${general}</td>
+                    <td></td>
+                    <td>
+                      <i className='fas fa-plus-square'></i>
+                      <span className='quantity'>0</span>
+                      <i className='fas fa-minus-square'></i>
+                    </td>
+                    <td></td>
+                  </tr>
 
-          <div className ='pt3'>
-          
-          <div className ='control-button pr3'>
-          <button className= 'f6 link dim ba bw1 ph3 pv2 mb2 dib black br2'>General ${general}</button>
-          <p className ='pb3 red'>{genQty} tickets left</p>
+                  <tr className='tbl-details'>
+                    <td>{vipQty}</td>
+                    <td>VIP</td>
+                    <td>${vip}</td>
+                    <td></td>
+                    <td>
+                      <i className='fas fa-plus-square'></i>
+                      <span className='quantity'>0</span>
+                      <i className='fas fa-minus-square'></i>
+                    </td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div className='total'>
+                <h2>
+                  <p>Total : $ 0.00</p>
+                </h2>
+              </div>
+              <br />
+              <br />
+
+              <Link className='buy' to='/checkout'>
+                PROCEED TO PAY
+              </Link>
+            </div>
           </div>
-
-          <div className ='control-button pr3'>
-          <button className= 'f6 link dim ba bw1 ph3 pv2 mb2 dib black br2'>VIP ${vip}</button>
-          <p className ='pb3 red'>{vipQty} tickets left</p>
-          </div>
-
-          {/*
-          <button className= 'f6 link dim ba bw1 ph3 pv2 mb2 dib black br2'> Reserved ${reserved}</button>
-          <p className ='pb3 red'>{resQty} tickets left</p>
-
-          <button className= 'f6 link dim ba bw1 ph3 pv2 mb2 dib black br2'>EarlyBird ${earlybird}</button>
-          <p className ='pb3 red'>{earlyQty} tickets left</p>
-          */}
-
-          </div>
-
-          </div>
-
         </Fragment>
       )}
     </Fragment>
@@ -127,7 +163,6 @@ const EventDetail = ({
 };
 
 EventDetail.propTypes = {
-  getItemById: PropTypes.func.isRequired,
   events: PropTypes.object.isRequired,
 };
 

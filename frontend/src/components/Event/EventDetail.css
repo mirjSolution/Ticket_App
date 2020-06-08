@@ -1,22 +1,148 @@
-.event-details {
+@import url(https://fonts.googleapis.com/css?family=Arvo);
+
+.box {
+  background: url(https://subtlepatterns.com/patterns/broken_noise.png);
+  font-family: Arvo;
+  display: flex;
+  margin: 0px auto;
+  margin-top: 80px;
+
+  color: #333;
+  text-transform: uppercase;
+  padding: 8px;
+  width: 100%;
+  height: 410px;
+  font-weight: bold;
+  text-shadow: 0px 1px 0px #fff;
+  font-family: 'arvo';
+  font-size: 11px;
+  border-left: 1px dashed rgba(51, 51, 51, 0.5);
+}
+
+.image {
+  height: 390px;
+  width: 500px;
+}
+.heading {
+  display: flex;
+  justify-content: space-evenly;
+
+  font-family: var(--monoton);
+}
+
+.description {
+  font-family: var(--roboto);
+  border-bottom: 1px solid rgba(51, 51, 51, 0.3);
+  font-size: 16px;
+}
+.inner {
+  background: #fff9ee
+    url(https://subtlepatterns.com/patterns/lightpaperfibers.png);
+  border: 2px dashed rgba(51, 51, 51, 0.5);
+  height: 390px;
+  padding: 8px;
+  width: 100%;
+}
+.inner h1 {
+  padding: 5px 0px;
+  margin: 0px;
+  font-size: 18px;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.3);
+  text-align: center;
+}
+
+.total h2 {
+  padding-left: 115px;
+  margin: 10px 0px;
+  font-size: 15px;
+}
+
+.total p {
   float: right;
+  margin: 0px;
+  margin-right: 15px;
+  padding: 10px;
+  font-size: 18px;
 }
 
-@media only screen and (max-width: 604px) {
-    .event-details {
-        float: left;
-        padding-top: 2rem;
-      }
+.tbl-event-details {
+  margin-top: 10px;
+  width: 100%;
+  font-size: 15px;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.3);
 }
 
-.control-button{
-    display: inline-block; 
-    
+.tbl-details {
+  text-align: center;
 }
 
-/*
-p{
-    display: inline-block;
-
+.arrow {
+  cursor: pointer;
 }
-*/
+
+.quantity {
+  margin: 0 10px;
+}
+
+.box .buy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  letter-spacing: 0.5px;
+  padding: 0 20px 0 20px;
+  font-size: 15px;
+  background-color: #333;
+  font-size: 20px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 30px;
+  color: #fff;
+}
+
+.box .buy:hover {
+  background-color: white;
+  color: #333;
+  border: 1px solid #333;
+}
+
+@media (max-width: 700px) {
+  .box {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    height: 750px;
+  }
+  .image {
+    height: 250px;
+    width: 500px;
+  }
+  .inner {
+    height: 700px;
+  }
+  .inner h1 {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+  }
+
+  .description {
+    font-size: 12px;
+    text-align: justify;
+  }
+
+  .tbl-event-details {
+    font-size: 11px;
+  }
+  .total p {
+    float: right;
+    font-size: 12px;
+  }
+
+  .box .buy {
+    font-size: 12px;
+  }
+}

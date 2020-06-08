@@ -22,7 +22,6 @@ const Event = ({ getEvents, events: { events, loading } }) => {
 
   const { searchField } = formSearch;
 
-
   return loading ? (
     <Spinner />
   ) : (
@@ -47,7 +46,7 @@ const Event = ({ getEvents, events: { events, loading } }) => {
             .map((event) => (
               <Fragment key={event._id}>
                 <Link to={`/eventdetails/${event._id}`}>
-                  <div className='center bg-white dib br3 pa1 ma1 grow bw2 shadow-5'>
+                  <div className='bg-white dib br3 pa2 ma2 grow bw1 shadow-5'>
                     <h2>{event.name}</h2>
                     <img className='event-image' src={event.urlPic} alt='' />
                     <h3>{event.eventDate}</h3>

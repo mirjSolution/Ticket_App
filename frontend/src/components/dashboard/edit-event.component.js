@@ -15,6 +15,7 @@ const EditEvent = ({
 }) => {
   const [formData, setFormData] = useState({
     eventDate: '',
+    eventTime: '',
     area: '',
     name: '',
     description: '',
@@ -34,6 +35,7 @@ const EditEvent = ({
 
     setFormData({
       eventDate: loading || !events.eventDate ? '' : events.eventDate,
+      eventTime: loading || !events.eventTime ? '' : events.eventTime,
       area: loading || !events.area ? '' : events.area,
       name: loading || !events.name ? '' : events.name,
       description: loading || !events.description ? '' : events.description,
@@ -52,6 +54,7 @@ const EditEvent = ({
     getEventById,
     match.params.id,
     events.eventDate,
+    events.eventTime,
     events.area,
     events.name,
     events.description,
@@ -68,6 +71,7 @@ const EditEvent = ({
 
   const {
     eventDate,
+    eventTime,
     area,
     name,
     description,
@@ -111,6 +115,16 @@ const EditEvent = ({
                 placeholder='Date'
                 name='eventDate'
                 value={eventDate}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
+            <div className='form-group'>
+              <h4>Time</h4>
+              <input
+                type='time'
+                placeholder='Time'
+                name='eventTime'
+                value={eventTime}
                 onChange={(e) => onChange(e)}
               />
             </div>

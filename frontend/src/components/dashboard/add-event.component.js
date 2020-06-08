@@ -7,6 +7,7 @@ import { createEvent } from '../../actions/events';
 const AddEvent = ({ createEvent, history }) => {
   const [formData, setFormData] = useState({
     eventDate: '',
+    eventTime: '',
     area: '',
     name: '',
     description: '',
@@ -23,6 +24,7 @@ const AddEvent = ({ createEvent, history }) => {
 
   const {
     eventDate,
+    eventTime,
     area,
     name,
     description,
@@ -60,6 +62,16 @@ const AddEvent = ({ createEvent, history }) => {
             placeholder='Date'
             name='eventDate'
             value={eventDate}
+            onChange={(e) => onChange(e)}
+          />
+        </div>
+        <div className='form-group'>
+          <h4>Time</h4>
+          <input
+            type='time'
+            placeholder='Time'
+            name='eventTime'
+            value={eventTime}
             onChange={(e) => onChange(e)}
           />
         </div>

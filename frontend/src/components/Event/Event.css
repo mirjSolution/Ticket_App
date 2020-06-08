@@ -9,35 +9,3 @@
   display: flex;
   justify-content: center;
 }
-
-@media only screen and (max-width: 1300px) {
-  .event-image {
-    width: 200px;
-    height: 200px;
-  }
-}
-
-/* @media only screen and (max-width: 800px) {
-} */
-
-@media only screen and (max-width: 600px) {
-  .event-image {
-    width: 300px;
-    height: 300px;
-  }
-}
-
-<<<<<<< HEAD
-
-=======
-/* Push image to the front */
-
-#image-holder {
-  width: 500px;
-  height: auto;
-  position: absolute;
-  left: 300px;
-  top: 200px;
-  display: none;
-}
->>>>>>> 52931cd64daca4ef989c85e2caec14fbaaf6a92e

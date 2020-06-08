@@ -2,6 +2,7 @@
 Generic Styling, for Desktops/Laptops 
 */
 .collection-preview {
+  width: 100%;
   margin-top: 4rem;
   overflow-y: visible;
 }
@@ -117,42 +118,45 @@ Generic Styling, for Desktops/Laptops
    Label the data
   */
   .items td:nth-of-type(1):before {
-    content: 'Date';
+    content: 'Event Name';
   }
   .items td:nth-of-type(2):before {
-    content: 'Area/Location';
+    content: 'Date';
   }
   .items td:nth-of-type(3):before {
-    content: 'Name';
+    content: 'Time';
   }
   .items td:nth-of-type(4):before {
-    content: 'Description';
+    content: 'Name';
   }
   .items td:nth-of-type(5):before {
-    content: 'G.A. Price';
+    content: 'Description';
   }
   .items td:nth-of-type(6):before {
-    content: 'G.A. Qty';
+    content: 'G.A. Price';
   }
   .items td:nth-of-type(7):before {
-    content: 'VIP Price';
+    content: 'G.A. Qty';
   }
   .items td:nth-of-type(8):before {
-    content: 'VIP Qty';
+    content: 'VIP Price';
   }
   .items td:nth-of-type(9):before {
+    content: 'VIP Qty';
+  }
+  .items td:nth-of-type(10):before {
     content: 'Res. Price';
   }
-  .items td:nth-of-type(10):before {
+  .items td:nth-of-type(11):before {
     content: 'Res. Qty';
   }
-  .items td:nth-of-type(11):before {
+  .items td:nth-of-type(12):before {
     content: 'E.B. Price';
   }
-  .items td:nth-of-type(12):before {
+  .items td:nth-of-type(13):before {
     content: 'E.B. Qty';
   }
-  .items td:nth-of-type(10):before {
+  .items td:nth-of-type(14):before {
     content: 'Actions';
   }
 }

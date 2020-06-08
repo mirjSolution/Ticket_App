@@ -5,6 +5,10 @@ const EventSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please add date'],
   },
+  eventTime: {
+    type: String,
+    required: [true, 'Please add time'],
+  },
   name: {
     type: String,
     trim: true,

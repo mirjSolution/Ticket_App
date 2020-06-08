@@ -23,6 +23,10 @@
   font-family: var(--roboto);
 }
 
+.checkout-page {
+  font-family: var(--roboto);
+}
+
 body {
   font-family: var(--new-rocker);
   font-size: 1rem;
