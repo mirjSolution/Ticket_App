@@ -185,6 +185,7 @@ const EditEvent = ({
                 placeholder='Ticket Quantity'
                 name='genQty'
                 value={genQty}
+                min='0'
                 onChange={(e) => onChange(e)}
               />
             </div>
@@ -205,6 +206,7 @@ const EditEvent = ({
                 placeholder='Ticket Quantity'
                 name='vipQty'
                 value={vipQty}
+                min='0'
                 onChange={(e) => onChange(e)}
               />
             </div>
@@ -225,6 +227,7 @@ const EditEvent = ({
                 placeholder='Ticket Quantity'
                 name='resQty'
                 value={resQty}
+                min='0'
                 onChange={(e) => onChange(e)}
               />
             </div>
@@ -245,6 +248,7 @@ const EditEvent = ({
                 placeholder='Ticket Quantity'
                 name='earlyQty'
                 value={earlyQty}
+                min='0'
                 onChange={(e) => onChange(e)}
               />
             </div>

@@ -28,28 +28,34 @@ const EventSchema = new mongoose.Schema({
   },
   general: {
     type: Number,
+    default: 0,
   },
   genQty: {
     type: Number,
+    default: 0,
   },
   vip: {
     type: Number,
-    quantity: Number,
+    default: 0,
   },
   vipQty: {
     type: Number,
+    default: 0,
   },
   reserved: {
     type: Number,
+    default: 0,
   },
   resQty: {
     type: Number,
+    default: 0,
   },
   earlybird: {
     type: Number,
   },
   earlyQty: {
     type: Number,
+    default: 0,
   },
 
   urlPic: {

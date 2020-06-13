@@ -132,6 +132,7 @@ const AddEvent = ({ createEvent, history }) => {
             placeholder='Ticket Quantity'
             name='genQty'
             value={genQty}
+            min='0'
             onChange={(e) => onChange(e)}
           />
         </div>
@@ -151,6 +152,7 @@ const AddEvent = ({ createEvent, history }) => {
             type='number'
             placeholder='Ticket Quantity'
             name='vipQty'
+            min='0'
             value={vipQty}
             onChange={(e) => onChange(e)}
           />
@@ -171,6 +173,7 @@ const AddEvent = ({ createEvent, history }) => {
             type='number'
             placeholder='Ticket Quantity'
             name='resQty'
+            min='0'
             value={resQty}
             onChange={(e) => onChange(e)}
           />
@@ -192,6 +195,7 @@ const AddEvent = ({ createEvent, history }) => {
             placeholder='Ticket Quantity'
             name='earlyQty'
             value={earlyQty}
+            min='0'
             onChange={(e) => onChange(e)}
           />
         </div>

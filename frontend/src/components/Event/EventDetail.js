@@ -3,12 +3,29 @@ import { withRouter, Link } from 'react-router-dom';
 import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getEventById } from '../../actions/events';
+import {
+  getEventById,
+  addQuantityVip,
+  addQuantityGA,
+  subQuantityGA,
+  subQuantityVIP,
+  eventTotal,
+  clearEventQtyTotal,
+} from '../../actions/events';
 import { setAlert } from '../../actions/alert';
 import './EventDetail.css';
 
 const EventDetail = ({
   events: { events, loading },
+  addQuantityVip,
+  addQuantityGA,
+  subQuantityGA,
+  subQuantityVIP,
+  quantityVIP,
+  quantityGA,
+  eventTotal,
+  clearEventQtyTotal,
+  total,
   getEventById,
   match,
   history,
@@ -32,7 +49,7 @@ const EventDetail = ({
 
   useEffect(() => {
     getEventById(match.params.id);
-
+    clearEventQtyTotal();
     setFormData({
       eventDate: loading || !events.eventDate ? '' : events.eventDate,
       eventTime: loading || !events.eventTime ? '' : events.eventTime,
@@ -53,6 +70,7 @@ const EventDetail = ({
     loading,
     getEventById,
     match.params.id,
+    clearEventQtyTotal,
     events.eventDate,
     events.eventTime,
     events.area,
@@ -92,13 +110,17 @@ const EventDetail = ({
         <Spinner />
       ) : (
         <Fragment>
-          <div className='box'>
+          <div className='box event-detail'>
             <div>
               <img className='image' src={urlPic} alt='' />
             </div>
             <div className='inner'>
               <h1 className='heading'>
-                <span>{name}</span>
+                <span>
+                  {name}@{area}
+                </span>
+              </h1>
+              <h1 className='heading'>
                 <span>{eventDate}</span>
                 <span>{eventTime}</span>
               </h1>
@@ -116,27 +138,51 @@ const EventDetail = ({
                 </thead>
                 <tbody>
                   <tr className='tbl-details'>
-                    <td>{genQty}</td>
+                    <td>{genQty === '' ? 'sold out' : genQty}</td>
                     <td>G.A.</td>
                     <td>${general}</td>
                     <td></td>
                     <td>
-                      <i className='fas fa-plus-square'></i>
-                      <span className='quantity'>0</span>
-                      <i className='fas fa-minus-square'></i>
+                      <i
+                        className='fas fa-plus-square'
+                        onClick={() => {
+                          addQuantityGA();
+                          eventTotal();
+                        }}
+                      ></i>
+                      <span className='quantity'>{quantityGA}</span>
+                      <i
+                        className='fas fa-minus-square'
+                        onClick={() => {
+                          subQuantityGA();
+                          eventTotal();
+                        }}
+                      ></i>
                     </td>
                     <td></td>
                   </tr>
 
                   <tr className='tbl-details'>
-                    <td>{vipQty}</td>
+                    <td>{vipQty === '' ? 'sold out' : vipQty}</td>
                     <td>VIP</td>
                     <td>${vip}</td>
                     <td></td>
                     <td>
-                      <i className='fas fa-plus-square'></i>
-                      <span className='quantity'>0</span>
-                      <i className='fas fa-minus-square'></i>
+                      <i
+                        className='fas fa-plus-square'
+                        onClick={() => {
+                          addQuantityVip();
+                          eventTotal();
+                        }}
+                      ></i>
+                      <span className='quantity'>{quantityVIP}</span>
+                      <i
+                        className='fas fa-minus-square'
+                        onClick={() => {
+                          subQuantityVIP();
+                          eventTotal();
+                        }}
+                      ></i>
                     </td>
                     <td></td>
                   </tr>
@@ -145,15 +191,18 @@ const EventDetail = ({
 
               <div className='total'>
                 <h2>
-                  <p>Total : $ 0.00</p>
+                  <p>Total : $ {total.toFixed(2)}</p>
                 </h2>
               </div>
               <br />
               <br />
-
-              <Link className='buy' to='/checkout'>
-                PROCEED TO PAY
-              </Link>
+              {total ? (
+                <Link className='buy' to={`/checkout/${events._id}`}>
+                  PROCEED TO PAY
+                </Link>
+              ) : (
+                <button className='buy'>PROCEED TO PAY</button>
+              )}
             </div>
           </div>
         </Fragment>
@@ -164,13 +213,25 @@ const EventDetail = ({
 
 EventDetail.propTypes = {
   events: PropTypes.object.isRequired,
+  quantityVIP: PropTypes.number.isRequired,
+  quantityGA: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   events: state.events,
+  quantityVIP: state.events.quantityVIP,
+  quantityGA: state.events.quantityGA,
+  total: state.events.total,
 });
 
 export default connect(mapStateToProps, {
   getEventById,
   setAlert,
+  addQuantityVip,
+  addQuantityGA,
+  subQuantityGA,
+  subQuantityVIP,
+  eventTotal,
+  clearEventQtyTotal,
 })(withRouter(EventDetail));

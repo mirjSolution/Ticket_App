@@ -1,7 +1,16 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 
-import { GET_EVENTS, EVENTS_ERROR } from './types';
+import {
+  GET_EVENTS,
+  EVENTS_ERROR,
+  ADD_QUANTITY_VIP,
+  ADD_QUANTITY_GA,
+  SUB_QUANTITY_GA,
+  SUB_QUANTITY_VIP,
+  EVENT_TOTAL,
+  CLEAR_EVENT_QTY_TOTAL,
+} from './types';
 
 // Get event by ID
 export const getEventById = (eventId) => async (dispatch) => {
@@ -132,4 +141,52 @@ export const deleteEvent = (eventId) => async (dispatch) => {
       },
     });
   }
+};
+
+// event add vip
+export const addQuantityVip = (quantity) => async (dispatch) => {
+  dispatch({
+    type: ADD_QUANTITY_VIP,
+    payload: quantity,
+  });
+};
+
+// event add ga
+export const addQuantityGA = (quantity) => async (dispatch) => {
+  dispatch({
+    type: ADD_QUANTITY_GA,
+    payload: quantity,
+  });
+};
+
+// event sub vip
+export const subQuantityVIP = (quantity) => async (dispatch) => {
+  dispatch({
+    type: SUB_QUANTITY_VIP,
+    payload: quantity,
+  });
+};
+
+// event sub ga
+export const subQuantityGA = (quantity) => async (dispatch) => {
+  dispatch({
+    type: SUB_QUANTITY_GA,
+    payload: quantity,
+  });
+};
+
+// event total
+export const eventTotal = (total) => async (dispatch) => {
+  dispatch({
+    type: EVENT_TOTAL,
+    payload: total,
+  });
+};
+
+// clear event quantity and total
+
+export const clearEventQtyTotal = () => async (dispatch) => {
+  dispatch({
+    type: CLEAR_EVENT_QTY_TOTAL,
+  });
 };

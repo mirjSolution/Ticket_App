@@ -17,7 +17,7 @@ router
   .get(getEvents)
   .post(protect, authorize('admin'), createEvents);
 
-// Get single L&F item, update and delete L&F items
+// Get single event item, update and delete event items
 router
   .route('/:id')
   .get(getEvent)
