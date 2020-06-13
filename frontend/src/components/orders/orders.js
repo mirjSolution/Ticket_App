@@ -2,6 +2,8 @@ import React, { Fragment, useEffect, useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
+import Moment from 'react-moment';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import { getOrderById, deleteOrder } from '../../actions/orders';
 
@@ -46,10 +48,17 @@ const Orders = ({
                 <div className='order__title'>
                   <h1 className='order__heading'>{order.order_name}</h1>
                 </div>
-                <p className='order__description'>{order.createdAt}</p>
+                <p className='order__description'>
+                  Date Purchased:{' '}
+                  <Moment format='YYYY/MM/DD'>
+                    {moment.utc(order.createdAt)}
+                  </Moment>
+                </p>
                 <p className='order__description'>{order.order_general}</p>
                 <p className='order__description'>{order.order_vip}</p>
-                <p className='order__description'>{order.order_total}</p>
+                <p className='order__description' style={{ fontSize: '20px' }}>
+                  {order.order_total}
+                </p>
               </div>
               <div
                 className='order__delete'
