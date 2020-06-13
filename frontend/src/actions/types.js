@@ -17,3 +17,5 @@ export const EVENT_TOTAL = 'EVENT_TOTAL';
 export const CLEAR_EVENT_QTY_TOTAL = 'CLEAR_EVENT_QTY_TOTAL';
 export const GET_ORDERS = 'GET_ORDERS';
 export const ORDER_ERROR = 'ORDER_ERROR';
+export const MESSAGE_SUCCESS = 'MESSAGE_SUCCESS';
+export const MESSAGE_ERROR = 'MESSAGE_ERROR';

@@ -21,12 +21,12 @@ export const createOrder = (formData, history, userId) => async (dispatch) => {
     history.push(`/orders/${userId}`);
     dispatch(setAlert('Ticket successfully purchased', 'success'));
   } catch (err) {
-    const errors = err.response.data.error;
+    // const errors = err.response.data.error;
 
-    if (errors) {
-      const arr = { errors: errors.split(',') };
-      arr.errors.map((error) => dispatch(setAlert(error, 'danger')));
-    }
+    // if (errors) {
+    //   const arr = { errors: errors.split(',') };
+    //   arr.errors.map((error) => dispatch(setAlert(error, 'danger')));
+    // }
 
     dispatch({
       type: ORDER_ERROR,

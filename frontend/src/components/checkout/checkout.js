@@ -1,9 +1,12 @@
 import React, { Fragment, useState } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createOrder } from '../../actions/orders';
+import { sendMessage } from '../../actions/message';
+import { v4 as uuid } from 'uuid';
+import moment from 'moment';
 import { getEventById, eventTotal } from '../../actions/events';
 import { setAlert } from '../../actions/alert';
 import './checkout.css';
@@ -16,20 +19,23 @@ const Checkout = ({
   createOrder,
   total,
   history,
+  sendMessage,
 }) => {
+  const ticket = uuid();
+  const today = moment();
   const [formData] = useState({
     order_name: events.name,
     order_general: quantityGA
       ? `General Admission: ${quantityGA} X ${events.general} =` +
         '  $' +
-        quantityGA * events.general
+        quantityGA.toFixed(2) * events.general.toFixed(2)
       : '',
     order_vip: quantityVIP
       ? `VIP: ${quantityVIP} X ${events.vip} =` +
         '  $' +
         quantityVIP * events.vip
       : '',
-    order_total: `Total : ${total.toFixed(2)}`,
+    order_total: `Total : $${total.toFixed(2)}`,
     order_general_qty: quantityGA,
     order_vip_qty: quantityVIP,
     order_total_tot: total,
@@ -37,6 +43,9 @@ const Checkout = ({
     user: auth.userId,
     ga_tickets_left: events.genQty,
     vip_tickets_left: events.vipQty,
+    purchasedAt: today.format('YYYY-MM-DD'),
+    ticketId: ticket,
+    email: auth.email,
   });
 
   const {
@@ -51,11 +60,23 @@ const Checkout = ({
     order_total_tot,
     ga_tickets_left,
     vip_tickets_left,
+    purchasedAt,
+    ticketId,
+    email,
   } = formData;
 
   const onSubmit = (e) => {
     e.preventDefault();
     createOrder(formData, history, user);
+    sendMessage({
+      ticketId,
+      order_name,
+      purchasedAt,
+      order_general,
+      order_vip,
+      order_total,
+      email,
+    });
   };
 
   return (
@@ -126,7 +147,23 @@ const Checkout = ({
                 <h2
                   style={{ display: 'none' }}
                   className='text-center'
-                  name='event'
+                  name='ticketId'
+                  value={ticketId}
+                >
+                  {ticketId}
+                </h2>
+                <h2
+                  style={{ display: 'none' }}
+                  className='text-center'
+                  name='purchasedAt'
+                  value={purchasedAt}
+                >
+                  {purchasedAt}
+                </h2>
+                <h2
+                  style={{ display: 'none' }}
+                  className='text-center'
+                  name='order_name'
                   value={order_name}
                 >
                   {order_name}
@@ -224,6 +261,7 @@ Checkout.propTypes = {
   email: PropTypes.string.isRequired,
   auth: PropTypes.object.isRequired,
   createOrder: PropTypes.func.isRequired,
+  sendMessage: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -240,4 +278,5 @@ export default connect(mapStateToProps, {
   setAlert,
   eventTotal,
   createOrder,
+  sendMessage,
 })(withRouter(Checkout));

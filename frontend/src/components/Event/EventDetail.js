@@ -28,7 +28,6 @@ const EventDetail = ({
   total,
   getEventById,
   match,
-  history,
 }) => {
   const [formData, setFormData] = useState({
     eventDate: '',
@@ -40,10 +39,6 @@ const EventDetail = ({
     genQty: '',
     vip: '',
     vipQty: '',
-    reserved: '',
-    resQty: '',
-    earlybird: '',
-    earlyQty: '',
     urlPic: '',
   });
 
@@ -97,10 +92,6 @@ const EventDetail = ({
     genQty,
     vip,
     vipQty,
-    reserved,
-    resQty,
-    earlybird,
-    earlyQty,
     urlPic,
   } = formData;
 

@@ -1,6 +1,7 @@
 const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../middleware/async');
 const Order = require('../models/Order');
+const Purchase = require('../models/Purchase');
 const Event = require('../models/Event');
 
 // @desc    Get order by user
@@ -25,6 +26,7 @@ exports.getOrder = asyncHandler(async (req, res, next) => {
 // @access      Private
 exports.addOrder = asyncHandler(async (req, res, next) => {
   const order = await Order.create(req.body);
+  const purchase = await Purchase.create(req.body);
   let event = await Event.findById(req.body.event);
 
   if (event) {

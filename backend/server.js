@@ -17,6 +17,7 @@ connectDB();
 const auth = require('./routes/auth');
 const events = require('./routes/events');
 const orders = require('./routes/orders');
+const sendmessage = require('./routes/sendmail');
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use(express.json());
 app.use('/api/v1/auth', auth);
 app.use('/api/v1/events', events);
 app.use('/api/v1/orders', orders);
+app.use('/api/v1/sendmessage', sendmessage);
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {

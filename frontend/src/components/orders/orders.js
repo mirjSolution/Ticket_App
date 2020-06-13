@@ -2,8 +2,6 @@ import React, { Fragment, useEffect, useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
-import Moment from 'react-moment';
-import moment from 'moment';
 import { connect } from 'react-redux';
 import { getOrderById, deleteOrder } from '../../actions/orders';
 
@@ -37,9 +35,11 @@ const Orders = ({
         <Spinner />
       ) : orders.length > 0 ? (
         orders.map((order) => (
-          <div className='order-details'>
+          <div className='order-details' key={order._id}>
             <img
-              src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${order._id}`}
+              // src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${`Purchased Date: ${order.purchasedAt} Event Name: ${order.order_name} Ticket Description: ${order.order_general} ${order.order_vip} ${order.order_total} `}`}
+              // src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${`https://google.com/${order._id}`}`}
+              src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${`${order.ticketId}`}`}
               alt='qrCode'
               className='order__img'
             />
@@ -49,10 +49,7 @@ const Orders = ({
                   <h1 className='order__heading'>{order.order_name}</h1>
                 </div>
                 <p className='order__description'>
-                  Date Purchased:{' '}
-                  <Moment format='YYYY/MM/DD'>
-                    {moment.utc(order.createdAt)}
-                  </Moment>
+                  Date Purchased: {order.purchasedAt}
                 </p>
                 <p className='order__description'>{order.order_general}</p>
                 <p className='order__description'>{order.order_vip}</p>
@@ -78,9 +75,9 @@ const Orders = ({
   );
 };
 checkout.propTypes = {
-  orders: PropTypes.object.isRequired,
-  deleteOrder: PropTypes.func.isRequired,
-  getOrderById: PropTypes.func.isRequired,
+  orders: PropTypes.object,
+  deleteOrder: PropTypes.func,
+  getOrderById: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
