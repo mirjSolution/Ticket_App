@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Forgot from './components/auth/Forgot';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import Events from './components/Event/Event';
@@ -41,6 +42,7 @@ const App = () => {
             <Switch>
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
+              <Route exact path='/forgot' component={Forgot} />
               <Route exact path='/events' component={Events} />
               <PrivateRoute exact path='/checkout/:id' component={checkout} />
               <PrivateRoute exact path='/dashboard' component={Dashboard} />

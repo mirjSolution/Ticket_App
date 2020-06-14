@@ -57,7 +57,11 @@ const Login = ({ login, isAuthenticated, role }) => {
         <input type='submit' className='btn btn-primary' value='Login' />
       </form>
       <p className='my-1'>
-        Forgot Password? <Link to='/'>Forgot</Link>
+        Forgot Password?{' '}
+        <Link to='/forgot'>
+          {' '}
+          <span style={{ borderBottom: '2px solid black' }}>Forgot</span>{' '}
+        </Link>
       </p>
     </Fragment>
   );
