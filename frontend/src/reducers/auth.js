@@ -5,6 +5,8 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  FORGOT_SUCCESS,
+  FORGOT_ERROR,
   LOGOUT,
 } from '../actions/types';
 
@@ -32,6 +34,11 @@ export default function (state = initialState, action) {
         name: payload.data.name,
         userId: payload.data._id,
       };
+
+    case FORGOT_SUCCESS:
+      return {
+        ...state,
+      };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
       localStorage.setItem('token', payload.token);
@@ -44,6 +51,7 @@ export default function (state = initialState, action) {
     case REGISTER_FAIL:
     case AUTH_ERROR:
     case LOGIN_FAIL:
+    case FORGOT_ERROR:
     case LOGOUT:
       localStorage.removeItem('token');
       return {

@@ -8,6 +8,8 @@ import {
   LOGIN_FAIL,
   LOGIN_SUCCESS,
   LOGOUT,
+  FORGOT_SUCCESS,
+  FORGOT_ERROR,
 } from './types';
 import setAuthToken from '../utils/setAuthToken';
 
@@ -92,6 +94,38 @@ export const login = (email, password) => async (dispatch) => {
 
     dispatch({
       type: LOGIN_FAIL,
+    });
+  }
+};
+
+// Forgot User
+export const forgot = (email) => async (dispatch) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  const body = JSON.stringify({ email });
+
+  try {
+    const res = await axios.post('/api/v1/auth/forgot', body, config);
+    dispatch({
+      type: FORGOT_SUCCESS,
+      payload: res.data,
+    });
+
+    dispatch(setAlert('Check your email to resest the password', 'success'));
+  } catch (err) {
+    const errors = err.response.data.error;
+
+    if (errors) {
+      const arr = { errors: errors.split(',') };
+      arr.errors.map((error) => dispatch(setAlert(error, 'danger')));
+    }
+
+    dispatch({
+      type: FORGOT_ERROR,
     });
   }
 };

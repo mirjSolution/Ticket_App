@@ -19,3 +19,5 @@ export const GET_ORDERS = 'GET_ORDERS';
 export const ORDER_ERROR = 'ORDER_ERROR';
 export const MESSAGE_SUCCESS = 'MESSAGE_SUCCESS';
 export const MESSAGE_ERROR = 'MESSAGE_ERROR';
+export const FORGOT_SUCCESS = 'FORGOT_SUCCESS';
+export const FORGOT_ERROR = 'FORGOT_ERROR';
