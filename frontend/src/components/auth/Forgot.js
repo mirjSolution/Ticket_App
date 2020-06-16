@@ -16,7 +16,7 @@ const Forgot = ({ forgot, history }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    forgot(email);
+    forgot(email, history);
     setFormData({ email: '' });
   };
 

@@ -99,15 +99,13 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
 
   // Create reser url
-  const resetUrl = `${req.protocol}://${req.get(
-    'host'
-  )}/api/v1/auth/resetpassword/${resetToken}`;
+  const resetUrl = `${req.protocol}://localhost:3000/reset/${resetToken}`;
 
   try {
     await sendEmail({
       to: user.email,
       subject: 'Password reset token',
-      html: `You are receiving this email because you (or someone else) has requested to reset the password. Please click the link to reset password: \n\n ${resetUrl}`,
+      html: `You are receiving this email because you (or someone else) has requested to reset the password. Please click the link to reset password: \n\n <a href=${resetUrl}>${resetUrl}</a>`,
     });
 
     res.status(200).json({ success: true, data: 'Email sent' });

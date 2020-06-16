@@ -7,6 +7,8 @@ import {
   LOGIN_FAIL,
   FORGOT_SUCCESS,
   FORGOT_ERROR,
+  RESET_ERROR,
+  RESET_SUCCESS,
   LOGOUT,
 } from '../actions/types';
 
@@ -36,6 +38,7 @@ export default function (state = initialState, action) {
       };
 
     case FORGOT_SUCCESS:
+    case RESET_SUCCESS:
       return {
         ...state,
       };
@@ -48,6 +51,7 @@ export default function (state = initialState, action) {
         isAuthenticated: true,
         loading: false,
       };
+    case RESET_ERROR:
     case REGISTER_FAIL:
     case AUTH_ERROR:
     case LOGIN_FAIL:
