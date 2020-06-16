@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 
-import { GET_ORDERS, ORDER_ERROR } from './types';
+import { GET_ORDERS, ORDER_ERROR, UPDATE_ORDERS } from './types';
 
 // Create order
 export const createOrder = (formData, history, userId) => async (dispatch) => {
@@ -15,11 +15,11 @@ export const createOrder = (formData, history, userId) => async (dispatch) => {
     const res = await axios.post('/api/v1/orders', formData, config);
 
     dispatch({
-      type: GET_ORDERS,
+      type: UPDATE_ORDERS,
       payload: res.data,
     });
-    history.push(`/orders/${userId}`);
     dispatch(setAlert('Ticket successfully purchased', 'success'));
+    history.push(`/orders/${userId}`);
   } catch (err) {
     // const errors = err.response.data.error;
 
@@ -38,9 +38,9 @@ export const createOrder = (formData, history, userId) => async (dispatch) => {
 };
 
 // Get order by User
-export const getOrderById = (orderId) => async (dispatch) => {
+export const getOrderById = (userId) => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/v1/orders/${orderId}`);
+    const res = await axios.get(`/api/v1/orders/${userId}`);
 
     dispatch({
       type: GET_ORDERS,
@@ -57,14 +57,14 @@ export const getOrderById = (orderId) => async (dispatch) => {
 };
 
 // Delete Order
-export const deleteOrder = (orderId) => async (dispatch) => {
+export const deleteOrder = (orderId, userId) => async (dispatch) => {
   try {
-    const res = await axios.delete(`/api/v1/orders/${orderId}`);
+    const res = await axios.delete(`/api/v1/orders/${orderId}/${userId}`);
 
     dispatch(setAlert('Ticket Successfully Deleted', 'danger'));
 
     dispatch({
-      type: GET_ORDERS,
+      type: UPDATE_ORDERS,
       payload: res.data,
     });
   } catch (err) {

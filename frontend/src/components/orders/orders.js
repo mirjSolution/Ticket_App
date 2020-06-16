@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useCallback } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
@@ -15,19 +15,8 @@ const Orders = ({
   match,
 }) => {
   useEffect(() => {
-    getOrderById(match.params.id);
-  }, [getOrderById, match.params.id]);
-
-  const fetchRequest = useCallback(() => {
-    getOrderById(match.params.id);
-  }, [getOrderById, match.params.id]);
-
-  const DeleteOrder = (orderId) => {
-    fetchRequest();
-    fetchRequest();
-    deleteOrder(orderId);
-    fetchRequest();
-  };
+    getOrderById(match.params.userId);
+  }, [getOrderById, match.params.userId]);
 
   return (
     <Fragment>
@@ -59,7 +48,7 @@ const Orders = ({
               </div>
               <div
                 className='order__delete'
-                onClick={() => DeleteOrder(order._id)}
+                onClick={() => deleteOrder(match.params.userId, order._id)}
               >
                 DELETE
               </div>

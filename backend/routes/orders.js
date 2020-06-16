@@ -9,9 +9,11 @@ const { protect, authorize } = require('../middleware/auth');
 router.route('/').post(protect, authorize('admin', 'user'), addOrder);
 
 // Get orders of user
+router.route('/:userId').get(protect, authorize('admin', 'user'), getOrder);
+
+// Delete orders of user
 router
-  .route('/:id')
-  .get(protect, authorize('admin', 'user'), getOrder)
+  .route('/:userId/:orderId')
   .delete(protect, authorize('admin', 'user'), deleteOrder);
 
 module.exports = router;

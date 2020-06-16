@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment, useState, useCallback } from 'react';
+import React, { useEffect, Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -19,17 +19,6 @@ const Dashboard = ({ getEvents, deleteEvent, events: { events, loading } }) => {
 
   const handleChange = (event) => {
     setFormSearch({ searchField: event.target.value });
-  };
-
-  const fetchRequest = useCallback(() => {
-    getEvents();
-  }, [getEvents]);
-
-  const DeleteEvent = (eventId) => {
-    fetchRequest();
-    fetchRequest();
-    deleteEvent(eventId);
-    fetchRequest();
   };
 
   const { searchField } = formSearch;
@@ -125,7 +114,7 @@ const Dashboard = ({ getEvents, deleteEvent, events: { events, loading } }) => {
                           </Link>
                           <Link
                             to='/dashboard'
-                            onClick={() => DeleteEvent(event._id)}
+                            onClick={() => deleteEvent(event._id)}
                           >
                             <i className='fas fa-trash-alt'></i>
                           </Link>
@@ -144,7 +133,6 @@ const Dashboard = ({ getEvents, deleteEvent, events: { events, loading } }) => {
 Dashboard.propTypes = {
   getEvents: PropTypes.func.isRequired,
   deleteEvent: PropTypes.func.isRequired,
-
   events: PropTypes.object.isRequired,
 };
 

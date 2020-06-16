@@ -50,7 +50,7 @@ const App = () => {
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
               <PrivateRoute exact path='/addevent' component={AddEvent} />
               <PrivateRoute exact path='/editevent/:id' component={EditEvent} />
-              <PrivateRoute exact path='/orders/:id' component={Orders} />
+              <PrivateRoute exact path='/orders/:userId' component={Orders} />
               <Route exact path='/eventdetails/:id' component={EventDetails} />
             </Switch>
           </section>

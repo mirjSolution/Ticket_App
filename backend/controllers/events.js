@@ -6,7 +6,7 @@ const Events = require('../models/Event');
 // @route   GET /api/v1/events
 // @access  Public
 exports.getEvents = asyncHandler(async (req, res, next) => {
-  const events = await Events.find().sort('-date');
+  const events = await Events.find().sort('-eventDate');
 
   res.status(200).json({ success: true, count: events.length, data: events });
 });
@@ -70,5 +70,8 @@ exports.deleteEvents = asyncHandler(async (req, res, next) => {
       new ErrorResponse(`Events not found with id of ${req.params.id}`, 404)
     );
   }
-  res.status(200).json({ success: true, data: {} });
+
+  const events1 = await Events.find().sort('-eventDate');
+
+  res.status(200).json({ success: true, data: events1 });
 });

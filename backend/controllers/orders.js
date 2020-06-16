@@ -9,12 +9,12 @@ const Event = require('../models/Event');
 // @access  Public
 exports.getOrder = asyncHandler(async (req, res, next) => {
   const orders = await Order.find({
-    user: req.params.id,
+    user: req.params.userId,
   });
 
   if (!orders) {
     return next(
-      new ErrorResponse(`Ticket not found with id of ${req.params.id}`, 404)
+      new ErrorResponse(`Ticket not found with id of ${req.params.userId}`, 404)
     );
   }
 
@@ -55,11 +55,19 @@ exports.addOrder = asyncHandler(async (req, res, next) => {
 // @route   DELETE /api/v1/orders/:id
 // @access  Private
 exports.deleteOrder = asyncHandler(async (req, res, next) => {
-  const order = await Order.findByIdAndDelete(req.params.id);
+  const order = await Order.findByIdAndDelete(req.params.orderId);
   if (!order) {
     return next(
-      new ErrorResponse(`Ticket not found with id of ${req.params.id}`, 404)
+      new ErrorResponse(
+        `Ticket not found with id of ${req.params.orderId}`,
+        404
+      )
     );
   }
-  res.status(200).json({ success: true, data: {} });
+
+  const orders = await Order.find({
+    user: req.params.userId,
+  });
+
+  res.status(200).json({ success: true, data: orders });
 });

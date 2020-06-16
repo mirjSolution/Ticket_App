@@ -7,6 +7,7 @@ import {
   SUB_QUANTITY_VIP,
   EVENT_TOTAL,
   CLEAR_EVENT_QTY_TOTAL,
+  UPDATE_EVENTS,
 } from '../actions/types';
 
 const initialState = {
@@ -23,6 +24,7 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case GET_EVENTS:
+    case UPDATE_EVENTS:
       return {
         ...state,
         events: payload.data,

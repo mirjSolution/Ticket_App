@@ -10,6 +10,7 @@ import {
   SUB_QUANTITY_VIP,
   EVENT_TOTAL,
   CLEAR_EVENT_QTY_TOTAL,
+  UPDATE_EVENTS,
 } from './types';
 
 // Get event by ID
@@ -63,7 +64,7 @@ export const createEvent = (formData, history, edit = false, eventId) => async (
       const res = await axios.post('/api/v1/events', formData, config);
 
       dispatch({
-        type: GET_EVENTS,
+        type: UPDATE_EVENTS,
         payload: res.data,
       });
 
@@ -99,11 +100,12 @@ export const createEvent = (formData, history, edit = false, eventId) => async (
       );
 
       dispatch({
-        type: GET_EVENTS,
+        type: UPDATE_EVENTS,
         payload: res.data,
       });
 
       dispatch(setAlert('Events Updated', 'success'));
+      history.push('/dashboard');
     } catch (err) {
       const errors = err.response.data.error;
 
@@ -126,13 +128,12 @@ export const createEvent = (formData, history, edit = false, eventId) => async (
 export const deleteEvent = (eventId) => async (dispatch) => {
   try {
     const res = await axios.delete(`/api/v1/events/${eventId}`);
-
-    dispatch(setAlert('Events Successfully Deleted', 'danger'));
-
     dispatch({
-      type: GET_EVENTS,
+      type: UPDATE_EVENTS,
       payload: res.data,
     });
+
+    dispatch(setAlert('Events Successfully Deleted', 'danger'));
   } catch (err) {
     dispatch({
       type: EVENTS_ERROR,
