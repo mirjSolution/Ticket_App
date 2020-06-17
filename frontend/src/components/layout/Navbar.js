@@ -17,7 +17,7 @@ const Navbar = ({
         <Link to='/dashboard'>Dashboard</Link>
       </li>
       <li>
-        <Link to={`/orders/${userId}`}>History</Link>
+        <Link to={`/purchases`}>Purchases</Link>
       </li>
       <li>
         <Link to='/' onClick={logout}>

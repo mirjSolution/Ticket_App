@@ -10,7 +10,7 @@ const Event = require('../models/Event');
 exports.getOrder = asyncHandler(async (req, res, next) => {
   const orders = await Order.find({
     user: req.params.userId,
-  });
+  }).sort('purchaseAt');
 
   if (!orders) {
     return next(

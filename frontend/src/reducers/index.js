@@ -4,6 +4,7 @@ import auth from './auth';
 import events from './events';
 import orders from './orders';
 import message from './message';
+import purchases from './purchases';
 
 export default combineReducers({
   alert,
@@ -11,4 +12,5 @@ export default combineReducers({
   events,
   orders,
   message,
+  purchases,
 });

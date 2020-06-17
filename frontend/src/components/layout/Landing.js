@@ -7,7 +7,7 @@ const Landing = () => {
       <div className='dark-overlay'>
         <div className='landing-inner'>
           <h1 className='x-large'>Concerts, Tickets and Tour Dates 2020</h1>
-          <p className='lead'>
+          <p className='lead' style={{ fontFamily: 'var(--new-rocker)' }}>
             Check out the best live upcoming concerts, and buy tickets online
           </p>
           <div className='buttons'>

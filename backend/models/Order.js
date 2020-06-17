@@ -1,6 +1,34 @@
 const mongoose = require('mongoose');
 
 const OrderSchema = new mongoose.Schema({
+  eventDate: {
+    type: String,
+    trim: true,
+  },
+  eventTime: {
+    type: String,
+    trim: true,
+  },
+  description: {
+    type: String,
+    trim: true,
+  },
+  area: {
+    type: String,
+    trim: true,
+  },
+  urlPic: {
+    type: String,
+    trim: true,
+  },
+  userEmail: {
+    type: String,
+    trim: true,
+  },
+  userName: {
+    type: String,
+    trim: true,
+  },
   order_name: {
     type: String,
     trim: true,

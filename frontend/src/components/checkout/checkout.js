@@ -24,6 +24,13 @@ const Checkout = ({
   const ticket = uuid();
   const today = moment();
   const [formData] = useState({
+    eventDate: events.eventDate,
+    eventTime: events.eventTime,
+    description: events.description,
+    area: events.area,
+    urlPic: events.urlPic,
+    userName: auth.name,
+    userEmail: auth.email,
     order_name: events.name,
     order_general: quantityGA
       ? `General Admission: ${quantityGA} X ${events.general} =` +
@@ -46,9 +53,17 @@ const Checkout = ({
     purchasedAt: today.format('YYYY-MM-DD'),
     ticketId: ticket,
     email: auth.email,
+    role: auth.role,
   });
 
   const {
+    eventDate,
+    eventTime,
+    description,
+    area,
+    urlPic,
+    userName,
+    userEmail,
     order_name,
     order_general,
     order_vip,
@@ -63,12 +78,18 @@ const Checkout = ({
     purchasedAt,
     ticketId,
     email,
+    role,
   } = formData;
 
   const onSubmit = (e) => {
     e.preventDefault();
-    createOrder(formData, history, user);
+    createOrder(formData, history, user, role);
     sendMessage({
+      eventDate,
+      eventTime,
+      description,
+      area,
+      urlPic,
       ticketId,
       order_name,
       purchasedAt,
@@ -76,6 +97,7 @@ const Checkout = ({
       order_vip,
       order_total,
       email,
+      userName,
     });
   };
 
@@ -144,6 +166,62 @@ const Checkout = ({
                 >
                   <span>{events.name}</span>
                 </h1>
+                <h2
+                  style={{ display: 'none' }}
+                  className='text-center'
+                  name='userEmail'
+                  value={userEmail}
+                >
+                  {userEmail}
+                </h2>
+                <h2
+                  style={{ display: 'none' }}
+                  className='text-center'
+                  name='userName'
+                  value={userName}
+                >
+                  {userName}
+                </h2>
+                <h2
+                  style={{ display: 'none' }}
+                  className='text-center'
+                  name='eventDate'
+                  value={eventDate}
+                >
+                  {eventDate}
+                </h2>
+                <h2
+                  style={{ display: 'none' }}
+                  className='text-center'
+                  name='eventTime'
+                  value={eventTime}
+                >
+                  {eventTime}
+                </h2>
+                <h2
+                  style={{ display: 'none' }}
+                  className='text-center'
+                  name='description'
+                  value={description}
+                >
+                  {description}
+                </h2>
+                <h2
+                  style={{ display: 'none' }}
+                  className='text-center'
+                  name='area'
+                  value={area}
+                >
+                  {area}
+                </h2>
+                <h2
+                  style={{ display: 'none' }}
+                  className='text-center'
+                  name='urlPic'
+                  value={urlPic}
+                >
+                  {urlPic}
+                </h2>
                 <h2
                   style={{ display: 'none' }}
                   className='text-center'

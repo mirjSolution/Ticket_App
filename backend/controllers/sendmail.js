@@ -7,6 +7,11 @@ const sendEmail = require('../utils/sendEmail');
 // @access      Public
 exports.sendMessage = asyncHandler(async (req, res, next) => {
   const {
+    eventDate,
+    eventTime,
+    description,
+    area,
+    urlPic,
     ticketId,
     order_name,
     purchasedAt,

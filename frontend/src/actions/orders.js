@@ -4,7 +4,9 @@ import { setAlert } from './alert';
 import { GET_ORDERS, ORDER_ERROR, UPDATE_ORDERS } from './types';
 
 // Create order
-export const createOrder = (formData, history, userId) => async (dispatch) => {
+export const createOrder = (formData, history, userId, role) => async (
+  dispatch
+) => {
   try {
     const config = {
       headers: {
@@ -19,7 +21,11 @@ export const createOrder = (formData, history, userId) => async (dispatch) => {
       payload: res.data,
     });
     dispatch(setAlert('Ticket successfully purchased', 'success'));
-    history.push(`/orders/${userId}`);
+    if (role === 'admin') {
+      history.push(`/purchases`);
+    } else {
+      history.push(`/orders/${userId}`);
+    }
   } catch (err) {
     // const errors = err.response.data.error;
 

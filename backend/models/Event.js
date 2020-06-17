@@ -3,10 +3,12 @@ const mongoose = require('mongoose');
 const EventSchema = new mongoose.Schema({
   eventDate: {
     type: String,
+    trim: true,
     required: [true, 'Please add date'],
   },
   eventTime: {
     type: String,
+    trim: true,
     required: [true, 'Please add time'],
   },
   name: {
@@ -60,6 +62,7 @@ const EventSchema = new mongoose.Schema({
 
   urlPic: {
     type: String,
+    trim: true,
   },
   createdAt: {
     type: Date,

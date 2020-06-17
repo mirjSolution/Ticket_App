@@ -18,6 +18,7 @@ const auth = require('./routes/auth');
 const events = require('./routes/events');
 const orders = require('./routes/orders');
 const sendmessage = require('./routes/sendmail');
+const purchases = require('./routes/purchase');
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use('/api/v1/auth', auth);
 app.use('/api/v1/events', events);
 app.use('/api/v1/orders', orders);
 app.use('/api/v1/sendmessage', sendmessage);
+app.use('/api/v1/purchases', purchases);
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
