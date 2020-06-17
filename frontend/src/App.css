@@ -354,9 +354,12 @@ button {
 /* Landing Page */
 .landing {
   font-family: var(--monoton);
-  position: relative;
+  position: fixed;
   background: url('./img/band.jpg') no-repeat center center/cover;
-  height: 100vh;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .landing-inner {
