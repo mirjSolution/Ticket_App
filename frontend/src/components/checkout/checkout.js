@@ -118,6 +118,7 @@ const Checkout = ({
                 name='userEmail'
                 value={userEmail}
                 disabled
+                required
               />
 
               <form className='form checkout' onSubmit={(e) => onSubmit(e)}>
