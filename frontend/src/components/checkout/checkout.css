@@ -19,6 +19,13 @@
   border-left: 1px dashed rgba(51, 51, 51, 0.5);
 }
 
+.input-usermail {
+  font-size: 20px;
+  text-align: center;
+  border: none;
+  width: 100%;
+}
+
 .image {
   height: 430px;
   width: 500px;

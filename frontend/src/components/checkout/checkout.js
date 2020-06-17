@@ -109,14 +109,17 @@ const Checkout = ({
         <Fragment>
           <div className='checkout-box'>
             <div className='inner'>
-              <h1
-                className='heading'
+              <input
+                type='email'
+                className='heading input-usermail'
                 style={{
                   textTransform: 'lowercase',
                 }}
-              >
-                <span>{auth.email}</span>
-              </h1>
+                name='userEmail'
+                value={userEmail}
+                disabled
+              />
+
               <form className='form checkout' onSubmit={(e) => onSubmit(e)}>
                 <h1 className='heading'>CARD DETAILS</h1>
                 <div className='form-group'>
@@ -166,14 +169,7 @@ const Checkout = ({
                 >
                   <span>{events.name}</span>
                 </h1>
-                <h2
-                  style={{ display: 'none' }}
-                  className='text-center'
-                  name='userEmail'
-                  value={userEmail}
-                >
-                  {userEmail}
-                </h2>
+
                 <h2
                   style={{ display: 'none' }}
                   className='text-center'
