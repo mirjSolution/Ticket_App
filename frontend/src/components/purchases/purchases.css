@@ -119,7 +119,7 @@ Generic Styling, for Desktops/Laptops
      Label the data
     */
   .purchases-preview .items td:nth-of-type(1):before {
-    content: 'Ticketb Id';
+    content: 'Ticket Id';
   }
   .purchases-preview .items td:nth-of-type(2):before {
     content: 'Purchase Date';
