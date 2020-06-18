@@ -10,7 +10,7 @@ const Event = require('../models/Event');
 exports.getOrder = asyncHandler(async (req, res, next) => {
   const orders = await Order.find({
     user: req.params.userId,
-  }).sort('purchaseAt');
+  }).sort('-createdAt');
 
   if (!orders) {
     return next(
@@ -67,7 +67,7 @@ exports.deleteOrder = asyncHandler(async (req, res, next) => {
 
   const orders = await Order.find({
     user: req.params.userId,
-  });
+  }).sort('-createdAt');
 
   res.status(200).json({ success: true, data: orders });
 });

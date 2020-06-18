@@ -18,12 +18,12 @@ exports.sendMessage = asyncHandler(async (req, res, next) => {
     order_general,
     order_vip,
     order_total,
-    email,
+    userEmail,
   } = req.body;
 
   try {
     await sendEmail({
-      to: email,
+      to: userEmail,
       subject: 'Your Purchased Ticket',
       // html: `<p style=color:red>Name: ${name}</p><p>Email: ${email}</p><p>Contact No. ${phone}</p><p>Message: ${message}</p>`,
 

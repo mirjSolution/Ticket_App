@@ -62,7 +62,6 @@ const PurchaseSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
-    required: true,
   },
   purchasedAt: {
     type: String,
@@ -71,6 +70,10 @@ const PurchaseSchema = new mongoose.Schema({
   ticketId: {
     type: String,
     trim: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
   },
 });
 

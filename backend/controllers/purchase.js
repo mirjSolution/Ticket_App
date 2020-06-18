@@ -6,7 +6,7 @@ const Purchase = require('../models/Purchase');
 // @route   GET /api/v1/purchases
 // @access  Public
 exports.getPurchases = asyncHandler(async (req, res, next) => {
-  const purchases = await Purchase.find().sort('-purchaseAt');
+  const purchases = await Purchase.find().sort('-createdAt');
 
   res
     .status(200)
@@ -24,7 +24,7 @@ exports.deletePurchases = asyncHandler(async (req, res, next) => {
     );
   }
 
-  const purchase1 = await Purchase.find().sort('-purchaseAt');
+  const purchase1 = await Purchase.find().sort('-createdAt');
 
   res.status(200).json({ success: true, data: purchase1 });
 });
