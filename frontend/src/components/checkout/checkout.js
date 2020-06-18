@@ -23,14 +23,15 @@ const Checkout = ({
 }) => {
   const ticket = uuid();
   const today = moment();
-  const [formData] = useState({
+
+  const [formData, setFormData] = useState({
     eventDate: events.eventDate,
     eventTime: events.eventTime,
     description: events.description,
     area: events.area,
     urlPic: events.urlPic,
     userName: auth.name,
-    userEmail: auth.email,
+    userEmail: auth.role === 'admin' || auth.role === 'user' ? auth.email : '',
     order_name: events.name,
     order_general: quantityGA
       ? `General Admission: ${quantityGA} X ${events.general} =` +
@@ -52,7 +53,7 @@ const Checkout = ({
     vip_tickets_left: events.vipQty,
     purchasedAt: today.format('YYYY-MM-DD'),
     ticketId: ticket,
-    email: auth.email,
+
     role: auth.role,
   });
 
@@ -77,9 +78,13 @@ const Checkout = ({
     vip_tickets_left,
     purchasedAt,
     ticketId,
-    email,
+
     role,
   } = formData;
+
+  const onChange = (e) => {
+    setFormData({ ...formData, userEmail: e.target.value });
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -96,7 +101,7 @@ const Checkout = ({
       order_general,
       order_vip,
       order_total,
-      email,
+      userEmail,
       userName,
     });
   };
@@ -109,19 +114,29 @@ const Checkout = ({
         <Fragment>
           <div className='checkout-box'>
             <div className='inner'>
-              <input
-                type='email'
-                className='heading input-usermail'
-                style={{
-                  textTransform: 'lowercase',
-                }}
-                name='userEmail'
-                value={userEmail}
-                disabled
-                required
-              />
-
               <form className='form checkout' onSubmit={(e) => onSubmit(e)}>
+                <input
+                  type='email'
+                  className='heading input-usermail'
+                  style={
+                    role === 'admin' || role === 'user'
+                      ? {
+                          textTransform: 'lowercase',
+                        }
+                      : {
+                          border: 'solid',
+
+                          fontFamily: 'var(--roboto)',
+                          textAlign: 'center',
+                        }
+                  }
+                  placeholder='Email Address'
+                  name='userEmail'
+                  value={userEmail}
+                  onChange={(e) => onChange(e)}
+                  disabled={role === 'admin' || (role === 'user' && true)}
+                  required
+                />
                 <h1 className='heading'>CARD DETAILS</h1>
                 <div className='form-group'>
                   <input type='text' placeholder='Card Name' name='cardname' />
@@ -333,7 +348,7 @@ Checkout.propTypes = {
   quantityVIP: PropTypes.number.isRequired,
   quantityGA: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
-  email: PropTypes.string.isRequired,
+  email: PropTypes.string,
   auth: PropTypes.object.isRequired,
   createOrder: PropTypes.func.isRequired,
   sendMessage: PropTypes.func.isRequired,

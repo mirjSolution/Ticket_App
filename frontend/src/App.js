@@ -47,7 +47,7 @@ const App = () => {
               <Route exact path='/forgot' component={Forgot} />
               <Route exact path='/reset/:resettoken' component={Reset} />
               <Route exact path='/events' component={Events} />
-              <PrivateRoute exact path='/checkout/:id' component={checkout} />
+              <Route exact path='/checkout/:id' component={checkout} />
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
               <PrivateRoute exact path='/addevent' component={AddEvent} />
               <PrivateRoute exact path='/editevent/:id' component={EditEvent} />

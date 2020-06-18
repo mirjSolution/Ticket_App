@@ -23,16 +23,18 @@ export const createOrder = (formData, history, userId, role) => async (
     dispatch(setAlert('Ticket successfully purchased', 'success'));
     if (role === 'admin') {
       history.push(`/purchases`);
-    } else {
+    } else if (role === 'user') {
       history.push(`/orders/${userId}`);
+    } else {
+      history.push(`/events`);
     }
   } catch (err) {
-    // const errors = err.response.data.error;
+    const errors = err.response.data.error;
 
-    // if (errors) {
-    //   const arr = { errors: errors.split(',') };
-    //   arr.errors.map((error) => dispatch(setAlert(error, 'danger')));
-    // }
+    if (errors) {
+      const arr = { errors: errors.split(',') };
+      arr.errors.map((error) => dispatch(setAlert(error, 'danger')));
+    }
 
     dispatch({
       type: ORDER_ERROR,
