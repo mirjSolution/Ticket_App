@@ -51,6 +51,15 @@ app.use(hpp());
 // Enable CORS
 app.use(cors());
 
+// Mount Routers
+
+app.use('/api/v1/auth', auth);
+app.use('/api/v1/events', events);
+app.use('/api/v1/orders', orders);
+app.use('/api/v1/sendmessage', sendmessage);
+app.use('/api/v1/purchases', purchases);
+app.use('/api/v1/reader', purchases);
+
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
@@ -60,15 +69,6 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'public', 'build', 'index.html'));
   });
 }
-
-// Mount Routers
-
-app.use('/api/v1/auth', auth);
-app.use('/api/v1/events', events);
-app.use('/api/v1/orders', orders);
-app.use('/api/v1/sendmessage', sendmessage);
-app.use('/api/v1/purchases', purchases);
-app.use('/api/v1/reader', purchases);
 
 // Error Handler
 app.use(errorHandler);
