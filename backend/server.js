@@ -68,6 +68,7 @@ app.use('/api/v1/events', events);
 app.use('/api/v1/orders', orders);
 app.use('/api/v1/sendmessage', sendmessage);
 app.use('/api/v1/purchases', purchases);
+app.use('/api/v1/reader', purchases);
 
 // Error Handler
 app.use(errorHandler);

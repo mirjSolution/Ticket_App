@@ -75,6 +75,9 @@ const PurchaseSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  validity: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model('Purchase', PurchaseSchema);
