@@ -7,6 +7,7 @@ import {
 const initialState = {
   purchases: [],
   loading: true,
+  validity: 'valid',
   errors: {},
 };
 
@@ -19,6 +20,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         purchases: payload.data,
+        validity: payload.data[0].validity,
         loading: false,
       };
     case PURCHASES_ERROR:

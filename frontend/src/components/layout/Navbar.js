@@ -9,7 +9,7 @@ const Navbar = ({
   logout,
 }) => {
   const adminLinks = (
-    <ul>
+    <ul className={role}>
       <li>
         <Link to='/events'>Events</Link>
       </li>
@@ -20,6 +20,9 @@ const Navbar = ({
         <Link to={`/purchases`}>Purchases</Link>
       </li>
       <li>
+        <Link to={`/reader`}>Validate</Link>
+      </li>
+      <li>
         <Link to='/' onClick={logout}>
           Logout
         </Link>
@@ -28,7 +31,7 @@ const Navbar = ({
   );
 
   const userLinks = (
-    <ul>
+    <ul className={role}>
       <li>
         <Link to='/events'>Events</Link>
       </li>

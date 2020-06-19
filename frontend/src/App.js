@@ -13,6 +13,7 @@ import EventDetails from './components/Event/EventDetail';
 import checkout from './components/checkout/checkout';
 import Orders from './components/orders/orders';
 import Purchases from './components/purchases/purchases';
+import Reader from './components/reader/reader';
 import AddEvent from './components/dashboard/add-event.component';
 import EditEvent from './components/dashboard/edit-event.component';
 import PrivateRoute from './components/routing/PrivateRoute';
@@ -53,6 +54,7 @@ const App = () => {
               <PrivateRoute exact path='/editevent/:id' component={EditEvent} />
               <PrivateRoute exact path='/orders/:userId' component={Orders} />
               <PrivateRoute exact path='/purchases' component={Purchases} />
+              <Route exact path='/reader/:ticketId' component={Reader} />
               <Route exact path='/eventdetails/:id' component={EventDetails} />
             </Switch>
           </section>

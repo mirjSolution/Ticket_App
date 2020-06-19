@@ -53,7 +53,7 @@ const Checkout = ({
     vip_tickets_left: events.vipQty,
     purchasedAt: today.format('YYYY-MM-DD'),
     ticketId: ticket,
-
+    validity: 'valid',
     role: auth.role,
   });
 
@@ -78,7 +78,7 @@ const Checkout = ({
     vip_tickets_left,
     purchasedAt,
     ticketId,
-
+    validity,
     role,
   } = formData;
 
@@ -209,6 +209,14 @@ const Checkout = ({
                   value={eventTime}
                 >
                   {eventTime}
+                </h2>
+                <h2
+                  style={{ display: 'none' }}
+                  className='text-center'
+                  name='validity'
+                  value={validity}
+                >
+                  {validity}
                 </h2>
                 <h2
                   style={{ display: 'none' }}
