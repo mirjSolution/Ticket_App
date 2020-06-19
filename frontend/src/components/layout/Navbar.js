@@ -20,9 +20,6 @@ const Navbar = ({
         <Link to={`/purchases`}>Purchases</Link>
       </li>
       <li>
-        <Link to={`/reader`}>Validate</Link>
-      </li>
-      <li>
         <Link to='/' onClick={logout}>
           Logout
         </Link>

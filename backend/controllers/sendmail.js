@@ -387,7 +387,7 @@ exports.sendMessage = asyncHandler(async (req, res, next) => {
 							<table class="col2" width="287" border="0" align="right" cellpadding="0" cellspacing="0">
 								<tbody><tr>
 									<td align="center" style="line-height:0px;">
-										<img style="display:block; line-height:0px; font-size:0px; border:0px;" class="images_style" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://google.com/${ticketId}" width="169" height="138">
+										<img style="display:block; line-height:0px; font-size:0px; border:0px;" class="images_style" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ticket-app-eclipticsolution.herokuapp.com/reader/${ticketId}" width="169" height="138">
 									</td>
 								</tr>
 							</tbody></table>
