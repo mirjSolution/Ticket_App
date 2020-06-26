@@ -137,19 +137,23 @@ const Checkout = ({
                   disabled={role === 'admin' || (role === 'user' && true)}
                   required
                 />
-                <h1 className='heading'>CARD DETAILS</h1>
-                <div className='form-group'>
+                <h1 className='heading' style={{ display: 'none' }}>
+                  CARD DETAILS
+                </h1>
+                <div className='form-group' style={{ display: 'none' }}>
                   <input type='text' placeholder='Card Name' name='cardname' />
                 </div>
-                <div className='form-group'>
+                <div style={{ display: 'none' }} className='form-group'>
                   <input
                     type='text'
                     placeholder='Card Number'
                     name='cardnumber'
                   />
                 </div>
-                <h1 className='heading'>EXPIRATION/CVC</h1>
-                <div className='card-exp-cvc'>
+                <h1 className='heading' style={{ display: 'none' }}>
+                  EXPIRATION/CVC
+                </h1>
+                <div className='card-exp-cvc' style={{ display: 'none' }}>
                   <div className='expiration'>
                     <div className='form-group'>
                       <input

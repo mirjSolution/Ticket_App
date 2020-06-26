@@ -122,14 +122,14 @@
     margin-top: 12px;
     display: flex;
     flex-direction: column;
-    height: 750px;
+    height: 790px;
   }
   .event-detail .image {
     height: 250px;
     width: 500px;
   }
   .inner {
-    height: 700px;
+    height: 720px;
   }
   .inner h1 {
     display: flex;
@@ -150,7 +150,7 @@
     font-size: 12px;
   }
 
-  .box .buy {
-    font-size: 12px;
+  .event-detail .buy {
+    font-size: 15px !important;
   }
 }
