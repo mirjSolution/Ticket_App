@@ -34,8 +34,8 @@ const Login = ({ login, isAuthenticated, role }) => {
       <p className='lead'>
         <i className='fas fa-user'></i> Login Into Your Account
       </p>
-      <p className='lead'>Username: admin@admin.com</p>
-      <p className='lead'>Password: 123456</p>
+      <p>Username: admin@admin.com</p>
+      <p>Password: 123456</p>
       <form className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
           <input
