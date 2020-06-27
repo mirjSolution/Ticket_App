@@ -16,6 +16,7 @@ import Purchases from './components/purchases/purchases';
 import Reader from './components/reader/reader';
 import AddEvent from './components/dashboard/add-event.component';
 import EditEvent from './components/dashboard/edit-event.component';
+import NotFound from './components/layout/NotFound';
 import PrivateRoute from './components/routing/PrivateRoute';
 // Redux
 import { Provider } from 'react-redux';
@@ -56,6 +57,7 @@ const App = () => {
               <PrivateRoute exact path='/purchases' component={Purchases} />
               <Route exact path='/reader/:ticketId' component={Reader} />
               <Route exact path='/eventdetails/:id' component={EventDetails} />
+              <Route component={NotFound} />
             </Switch>
           </section>
         </Fragment>
