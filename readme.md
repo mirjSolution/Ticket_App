@@ -72,7 +72,7 @@ npm run dev
 
 Integrate application with payment capabilities like stripe.
 
-## Demo
+### Demo
 
 The APP is live at (https://ticket-app-eclipticsolution.herokuapp.com/)
 
