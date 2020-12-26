@@ -36,6 +36,10 @@ const Login = ({ login, isAuthenticated, role }) => {
       </p>
       <p>Username: admin@admin.com</p>
       <p>Password: 123456</p>
+      <a href='https://github.com/mirjSolution/Ticket_App'>
+        <p>GitHub Link</p>
+      </a>
+
       <form className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
           <input

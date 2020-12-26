@@ -8,6 +8,7 @@
 - Return data (title, date/time, description, ticket left, type, price, quantity, and total) about a single event/concert to the user
 - Allow new users to register
 - Allow users to view and delete purchased ticket.
+- Allow users to reset password if forgotten.
 - Admin user to add, edit and delete event/concert.
 - Admin user can delete and view all purchased ticket.
 - Admin can change status of Ticket is valid to Ticket is used vice versa
