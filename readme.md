@@ -73,10 +73,4 @@ npm run dev
 
 Integrate application with payment capabilities like stripe.
 
-### Demo
-
-The APP is live at (https://ticket-app-eclipticsolution.herokuapp.com/)
-
-- Version: 1.0.0
-- License: MIT
-- Author: Rico John Dato-on
+Author: Rico John Dato-on
